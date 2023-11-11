@@ -11,13 +11,14 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import SimpleMDE from 'react-simplemde-editor';
+import Spinner from '@/app/components/shared/Spinner';
 
 const NewIssuePage = () => {
   const {
     register,
     handleSubmit,
     control,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<IssueFormData>({
     resolver: zodResolver(createIssueSchema),
   });
@@ -25,7 +26,9 @@ const NewIssuePage = () => {
   const router = useRouter();
   const [error, setError] = useState('');
 
-  const onSubmit: SubmitHandler<IssueFormData> = async data => {
+  const onSubmit: SubmitHandler<IssueFormData> = async (data, event) => {
+    event?.preventDefault();
+
     try {
       await axios.post('/api/issues', data);
       router.push('/issues');
@@ -56,7 +59,9 @@ const NewIssuePage = () => {
         />
         <ErrorMessage>{errors.description?.message}</ErrorMessage>
 
-        <Button>Submit New Issue</Button>
+        <Button disabled={isSubmitting}>
+          Submit New Issue {isSubmitting && <Spinner />}
+        </Button>
       </form>
     </div>
   );
