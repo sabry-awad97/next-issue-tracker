@@ -1,7 +1,13 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { AiFillBug } from 'react-icons/ai';
+import NavbarLink from './NavbarLink';
 
 const Navbar = () => {
+  const currentPath = usePathname();
+
   const navLinks = [
     { href: '/', text: 'Dashboard' },
     { href: '/issues', text: 'Issues' },
@@ -14,12 +20,12 @@ const Navbar = () => {
       </Link>
       <ul className="flex space-x-6">
         {navLinks.map(link => (
-          <li
+          <NavbarLink
             key={link.href}
-            className="text-zinc-500 hover:text-zinc-800 transition-colors"
-          >
-            <Link href={link.href}>{link.text}</Link>
-          </li>
+            href={link.href}
+            text={link.text}
+            currentPath={currentPath}
+          />
         ))}
       </ul>
     </nav>
