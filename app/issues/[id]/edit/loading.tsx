@@ -1,7 +1,7 @@
 import IssueFormSkeleton from '@/app/components/shared/IssueFormSkeleton';
 
-const LoadingNewIssuePage = () => {
+const LoadingEditIssuePage = () => {
   return <IssueFormSkeleton />;
 };
 
-export default LoadingNewIssuePage;
+export default LoadingEditIssuePage;

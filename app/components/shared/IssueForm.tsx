@@ -6,17 +6,13 @@ import ErrorMessage from '@/app/components/shared/ErrorMessage';
 import Spinner from '@/app/components/shared/Spinner';
 import { IssueFormData, issueSchema } from '@/app/schemas/issue';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Issue } from '@prisma/client';
 import { Button, Callout, TextField } from '@radix-ui/themes';
 import axios from 'axios';
-import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { Issue } from '@prisma/client';
-
-const SimpleMDE = dynamic(() => import('react-simplemde-editor'), {
-  ssr: false,
-});
+import SimpleMDE from 'react-simplemde-editor';
 
 interface Props {
   issue?: Issue;

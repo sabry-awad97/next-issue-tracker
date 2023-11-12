@@ -1,19 +1,20 @@
-import IssueForm from '@/app/components/shared/IssueForm';
-import prisma from '@/prisma/client';
+import IssueFormSkeleton from '@/app/components/shared/IssueFormSkeleton';
+import IssueService from '@/prisma/services/issue';
+import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 
-interface Props {
-  params: {
-    id: string;
-  };
-}
+const IssueForm = dynamic(() => import('@/app/components/shared/IssueForm'), {
+  ssr: false,
+  loading: () => <IssueFormSkeleton />,
+});
 
-const EditIssuePage = async ({ params: { id } }: Props) => {
-  const issue = await prisma.issue.findUnique({
-    where: {
-      id,
-    },
-  });
+const EditIssuePage = async ({
+  params: { id },
+}: {
+  params: { id: string };
+}) => {
+  const service = IssueService.getInstance();
+  const issue = await service.findIssue(id);
 
   if (!issue) {
     notFound();
