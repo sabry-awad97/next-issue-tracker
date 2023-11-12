@@ -1,7 +1,5 @@
-import 'react-loading-skeleton/dist/skeleton.css';
-
+import { Skeleton } from '@/app/components/shared/Skeleton';
 import { Table } from '@radix-ui/themes';
-import Skeleton from 'react-loading-skeleton';
 import IssuesToolbar from '../components/unique/IssuesToolbar';
 
 const LoadingIssuesPage = () => {
