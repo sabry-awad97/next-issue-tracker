@@ -7,38 +7,69 @@ type IssueUpdateBody = Prisma.Args<typeof prisma.issue, 'update'>['data'];
 
 class IssueService {
   private static instance: IssueService | null = null;
-  private constructor(private _: PrismaClient) {}
+  private constructor(private client: PrismaClient) {}
   static getInstance(): IssueService {
     if (!IssueService.instance) {
       IssueService.instance = new IssueService(prisma);
     }
-
     return IssueService.instance;
   }
 
-  async addIssue(issueBody: IssueCreateBody) {
-    const issue = await prisma.issue.create({ data: issueBody });
-    return issue;
+  async addIssue(data: IssueCreateBody) {
+    try {
+      const issue = await this.client.issue.create({ data });
+      return issue;
+    } catch (error) {
+      console.error('Error creating issue:', error);
+      throw error;
+    }
   }
 
-  async updateIssue(id: IssueId, updatedData: IssueUpdateBody) {
-    const issue = await prisma.issue.update({
-      where: { id },
-      data: updatedData,
-    });
-    return issue;
+  async updateIssue(id: IssueId, data: IssueUpdateBody) {
+    try {
+      const issue = await this.client.issue.update({
+        where: { id },
+        data,
+      });
+      return issue;
+    } catch (error) {
+      console.error('Error updating issue:', error);
+      throw error;
+    }
   }
 
   async findIssue(id: IssueId) {
-    const issue = await prisma.issue.findUnique({
-      where: { id },
-    });
-    return issue;
+    try {
+      const issue = await this.client.issue.findUnique({
+        where: { id },
+      });
+      return issue;
+    } catch (error) {
+      console.error('Error finding issue:', error);
+      throw error;
+    }
   }
 
   async findIssues() {
-    const issues = await prisma.issue.findMany({});
-    return issues;
+    try {
+      const issues = await this.client.issue.findMany({});
+      return issues;
+    } catch (error) {
+      console.error('Error finding all issues:', error);
+      throw error;
+    }
+  }
+
+  async deleteIssue(id: IssueId) {
+    try {
+      const deletedIssue = await this.client.issue.delete({
+        where: { id },
+      });
+      return deletedIssue;
+    } catch (error) {
+      console.error('Error deleting issue:', error);
+      throw error;
+    }
   }
 }
 

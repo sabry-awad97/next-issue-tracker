@@ -8,6 +8,7 @@ interface Props {
     id: string;
   };
 }
+
 export async function PATCH(request: NextRequest, { params: { id } }: Props) {
   const body: IssueFormData = await request.json();
   const validation = await issueSchema.safeParseAsync(body);
@@ -28,4 +29,18 @@ export async function PATCH(request: NextRequest, { params: { id } }: Props) {
   });
 
   return NextResponse.json(updatedIssue);
+}
+
+export async function DELETE(request: NextRequest, { params: { id } }: Props) {
+  const service = IssueService.getInstance();
+
+  const issue = await service.findIssue(id);
+
+  if (!issue) {
+    return NextResponse.json({ error: 'Issue not found' }, { status: 404 });
+  }
+
+  await service.deleteIssue(id);
+
+  return NextResponse.json({});
 }
