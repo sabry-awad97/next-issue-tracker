@@ -38,7 +38,7 @@ const IssueForm: React.FC<Props> = ({ issue }) => {
       if (issue) await axios.patch('/api/issues/' + issue.id, data);
       else await axios.post('/api/issues', data);
 
-      router.push('/issues');
+      router.push('/issues/list');
       router.refresh();
     } catch (error) {
       setError('Failed to submit issue');

@@ -1,15 +1,12 @@
-import IssueService from '@/prisma/services/issue';
+import { Skeleton } from '@/app/components/shared/Skeleton';
 import { Table } from '@radix-ui/themes';
-import IssueStatusBadge from '../components/shared/IssueStatusBadge';
-import Link from '../components/shared/Link';
-import IssuesToolbar from '../components/unique/IssuesToolbar';
+import IssuesToolbar from '../../components/unique/IssuesToolbar';
 
-const IssuesPage = async () => {
-  const service = IssueService.getInstance();
-  const issues = await service.findIssues();
+const LoadingIssuesPage = () => {
+  const issues = [1, 2, 3, 4, 5];
 
   return (
-    <div>
+    <>
       <IssuesToolbar />
       <Table.Root variant="surface">
         <Table.Header>
@@ -25,28 +22,25 @@ const IssuesPage = async () => {
         </Table.Header>
         <Table.Body>
           {issues.map(issue => (
-            <Table.Row key={issue.id}>
+            <Table.Row key={issue}>
               <Table.Cell>
-                <Link href={`/issues/${issue.id}`}>{issue.title}</Link>
+                <Skeleton />
                 <div className="md:hidden">
-                  <IssueStatusBadge status={issue.status} />
+                  <Skeleton />
                 </div>
               </Table.Cell>
               <Table.Cell className="hidden md:table-cell">
-                <IssueStatusBadge status={issue.status} />
+                <Skeleton />
               </Table.Cell>
               <Table.Cell className="hidden md:table-cell">
-                {issue.createdAt.toDateString()}
+                <Skeleton />
               </Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
       </Table.Root>
-    </div>
+    </>
   );
 };
 
-export const dynamic = 'force-dynamic';
-// export const revalidate = 0;
-
-export default IssuesPage;
+export default LoadingIssuesPage;
