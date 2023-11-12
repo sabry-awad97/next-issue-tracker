@@ -3,15 +3,19 @@
 import 'easymde/dist/easymde.min.css';
 
 import ErrorMessage from '@/app/components/shared/ErrorMessage';
+import Spinner from '@/app/components/shared/Spinner';
 import { IssueFormData, createIssueSchema } from '@/app/schemas/createIssue';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, Callout, TextField } from '@radix-ui/themes';
 import axios from 'axios';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import SimpleMDE from 'react-simplemde-editor';
-import Spinner from '@/app/components/shared/Spinner';
+
+const SimpleMDE = dynamic(() => import('react-simplemde-editor'), {
+  ssr: false,
+});
 
 const NewIssuePage = () => {
   const {
@@ -53,9 +57,11 @@ const NewIssuePage = () => {
         <Controller
           name="description"
           control={control}
-          render={({ field }) => (
-            <SimpleMDE placeholder="Description" {...field} />
-          )}
+          render={({ field }) => {
+            return (
+              <SimpleMDE placeholder="Description" {...field} ref={null} />
+            );
+          }}
         />
         <ErrorMessage>{errors.description?.message}</ErrorMessage>
 
