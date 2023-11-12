@@ -2,6 +2,8 @@ import { Prisma, PrismaClient } from '@prisma/client';
 import prisma from '../client';
 
 type IssueCreateBody = Prisma.Args<typeof prisma.issue, 'create'>['data'];
+type IssueId = Prisma.Args<typeof prisma.issue, 'update'>['where']['id'];
+type IssueUpdateBody = Prisma.Args<typeof prisma.issue, 'update'>['data'];
 
 class IssueService {
   private static instance: IssueService | null = null;
@@ -15,8 +17,28 @@ class IssueService {
   }
 
   async addIssue(issueBody: IssueCreateBody) {
-    const post = await prisma.issue.create({ data: issueBody });
-    return post;
+    const issue = await prisma.issue.create({ data: issueBody });
+    return issue;
+  }
+
+  async updateIssue(id: IssueId, updatedData: IssueUpdateBody) {
+    const issue = await prisma.issue.update({
+      where: { id },
+      data: updatedData,
+    });
+    return issue;
+  }
+
+  async findIssue(id: IssueId) {
+    const issue = await prisma.issue.findUnique({
+      where: { id },
+    });
+    return issue;
+  }
+
+  async findIssues() {
+    const issues = await prisma.issue.findMany({});
+    return issues;
   }
 }
 
