@@ -4,7 +4,7 @@ import 'easymde/dist/easymde.min.css';
 
 import ErrorMessage from '@/app/components/shared/ErrorMessage';
 import Spinner from '@/app/components/shared/Spinner';
-import { IssueFormData, createIssueSchema } from '@/app/schemas/createIssue';
+import { IssueFormData, issueSchema } from '@/app/schemas/issue';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, Callout, TextField } from '@radix-ui/themes';
 import axios from 'axios';
@@ -29,7 +29,7 @@ const IssueForm: React.FC<Props> = ({ issue }) => {
     control,
     formState: { errors, isSubmitting },
   } = useForm<IssueFormData>({
-    resolver: zodResolver(createIssueSchema),
+    resolver: zodResolver(issueSchema),
   });
 
   const router = useRouter();
