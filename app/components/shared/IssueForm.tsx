@@ -39,7 +39,9 @@ const IssueForm: React.FC<Props> = ({ issue }) => {
     event?.preventDefault();
 
     try {
-      await axios.post('/api/issues', data);
+      if (issue) await axios.patch('/api/issues/' + issue.id, data);
+      else await axios.post('/api/issues', data);
+
       router.push('/issues');
     } catch (error) {
       setError('Failed to submit issue');
@@ -76,7 +78,8 @@ const IssueForm: React.FC<Props> = ({ issue }) => {
         <ErrorMessage>{errors.description?.message}</ErrorMessage>
 
         <Button disabled={isSubmitting}>
-          Submit New Issue {isSubmitting && <Spinner />}
+          {issue ? 'Update issue' : 'Submit New Issue'}{' '}
+          {isSubmitting && <Spinner />}
         </Button>
       </form>
     </div>
