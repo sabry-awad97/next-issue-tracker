@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient, Status } from '@prisma/client';
+import { Issue, Prisma, PrismaClient, Status } from '@prisma/client';
 import prisma from '../client';
 
 type IssueCreateBody = Prisma.Args<typeof prisma.issue, 'create'>['data'];
@@ -50,9 +50,12 @@ class IssueService {
     }
   }
 
-  async findIssuesByStatus(status?: Status) {
+  async findIssuesByStatusOrderedBy(status?: Status, orderBy?: keyof Issue) {
     try {
-      const issues = await this.client.issue.findMany({ where: { status } });
+      const issues = await this.client.issue.findMany({
+        where: { status },
+        orderBy: orderBy ? { [orderBy]: 'asc' } : undefined,
+      });
       return issues;
     } catch (error) {
       console.error('Error finding all issues:', error);

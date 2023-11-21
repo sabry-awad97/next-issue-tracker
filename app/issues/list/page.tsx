@@ -3,23 +3,49 @@ import { Table } from '@radix-ui/themes';
 import IssueStatusBadge from '../../components/shared/IssueStatusBadge';
 import Link from '../../components/shared/Link';
 import IssuesToolbar from '../../components/unique/IssuesToolbar';
-import { Status } from '@prisma/client';
+import { Issue, Status } from '@prisma/client';
 import { NextPage } from 'next';
+import NextLink from 'next/link';
+import { ArrowUpIcon } from '@radix-ui/react-icons';
 
 interface Props {
   searchParams: {
     status?: Status;
+    orderBy?: keyof Issue;
   };
 }
 
 const IssuesPage: NextPage<Props> = async ({ searchParams }) => {
+  const columns: { label: string; value: keyof Issue; className?: string }[] = [
+    {
+      label: 'Issue',
+      value: 'title',
+    },
+    {
+      label: 'Status',
+      value: 'status',
+      className: 'hidden md:table-cell',
+    },
+    {
+      label: 'Created',
+      value: 'createdAt',
+      className: 'hidden md:table-cell',
+    },
+  ];
+
   const service = IssueService.getInstance();
 
   const status = Object.values(Status).includes(searchParams.status!)
     ? searchParams.status
     : undefined;
 
-  const issues = await service.findIssuesByStatus(status);
+  const orderBy = columns
+    .map(column => column.value)
+    .includes(searchParams.orderBy!)
+    ? searchParams.orderBy
+    : undefined;
+
+  const issues = await service.findIssuesByStatusOrderedBy(status, orderBy);
 
   return (
     <div>
@@ -27,13 +53,21 @@ const IssuesPage: NextPage<Props> = async ({ searchParams }) => {
       <Table.Root variant="surface">
         <Table.Header>
           <Table.Row>
-            <Table.ColumnHeaderCell>Issue</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="hidden md:table-cell">
-              Status
-            </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="hidden md:table-cell">
-              Created
-            </Table.ColumnHeaderCell>
+            {columns.map(column => (
+              <Table.ColumnHeaderCell
+                key={column.value}
+                className={column.className}
+              >
+                <NextLink
+                  href={{ query: { ...searchParams, orderBy: column.value } }}
+                >
+                  {column.label}
+                </NextLink>
+                {column.value === searchParams.orderBy && (
+                  <ArrowUpIcon className="inline" />
+                )}
+              </Table.ColumnHeaderCell>
+            ))}
           </Table.Row>
         </Table.Header>
         <Table.Body>
