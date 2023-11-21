@@ -49,10 +49,8 @@ const NavbarLinks = () => {
         <li
           key={link.href}
           className={classNames({
-            'text-zinc-900': link.href === currentPath,
-            'text-zinc-500': link.href !== currentPath,
-            'hover:text-zinc-800': true,
-            'transition-colors': true,
+            'nav-link': true,
+            '!text-zinc-900': link.href === currentPath,
           })}
         >
           <Link href={link.href}>{link.text}</Link>
@@ -68,7 +66,11 @@ const AuthStatus = () => {
   if (status === 'loading') return null;
 
   if (status === 'unauthenticated')
-    return <Link href="/api/auth/signin">Login</Link>;
+    return (
+      <Link className="nav-link" href="/api/auth/signin">
+        Login
+      </Link>
+    );
 
   const { email, image } = session!.user!;
 
