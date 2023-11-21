@@ -14,7 +14,12 @@ interface Props {
 
 const IssuesPage: NextPage<Props> = async ({ searchParams }) => {
   const service = IssueService.getInstance();
-  const issues = await service.findIssuesByStatus(searchParams.status);
+
+  const status = Object.values(Status).includes(searchParams.status!)
+    ? searchParams.status
+    : undefined;
+
+  const issues = await service.findIssuesByStatus(status);
 
   return (
     <div>
