@@ -13,8 +13,11 @@ interface Props {
   searchParams: {
     status?: Status;
     orderBy?: keyof Issue;
+    page?: string;
   };
 }
+
+const PAGE_SIZE = 10;
 
 const IssuesPage: NextPage<Props> = async ({ searchParams }) => {
   const columns: { label: string; value: keyof Issue; className?: string }[] = [
@@ -46,7 +49,16 @@ const IssuesPage: NextPage<Props> = async ({ searchParams }) => {
     ? searchParams.orderBy
     : undefined;
 
-  const issues = await service.findIssuesByStatusOrderedBy(status, orderBy);
+  const page = searchParams.page ? parseInt(searchParams.page, 10) : 1;
+
+  const issues = await service.findIssues({
+    where: { status },
+    orderBy: orderBy ? { [orderBy]: 'asc' } : undefined,
+    skip: (page - 1) * PAGE_SIZE,
+    take: PAGE_SIZE,
+  });
+
+  const totalIssuesCount = await service.getIssuesCount(status);
 
   return (
     <div>
@@ -90,7 +102,11 @@ const IssuesPage: NextPage<Props> = async ({ searchParams }) => {
           ))}
         </Table.Body>
       </Table.Root>
-      <Pagination totalCount={100} currentPage={1} pageSize={10} />
+      <Pagination
+        totalCount={totalIssuesCount}
+        currentPage={page}
+        pageSize={10}
+      />
     </div>
   );
 };

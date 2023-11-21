@@ -4,6 +4,7 @@ import prisma from '../client';
 type IssueCreateBody = Prisma.Args<typeof prisma.issue, 'create'>['data'];
 type IssueId = Prisma.Args<typeof prisma.issue, 'update'>['where']['id'];
 type IssueUpdateBody = Prisma.Args<typeof prisma.issue, 'update'>['data'];
+type IssueFindManyArgs = Prisma.Args<typeof prisma.issue, 'findMany'>;
 
 class IssueService {
   private static instance: IssueService | null = null;
@@ -50,12 +51,9 @@ class IssueService {
     }
   }
 
-  async findIssuesByStatusOrderedBy(status?: Status, orderBy?: keyof Issue) {
+  async findIssues(args: IssueFindManyArgs) {
     try {
-      const issues = await this.client.issue.findMany({
-        where: { status },
-        orderBy: orderBy ? { [orderBy]: 'asc' } : undefined,
-      });
+      const issues = await this.client.issue.findMany(args);
       return issues;
     } catch (error) {
       console.error('Error finding all issues:', error);
@@ -71,6 +69,18 @@ class IssueService {
       return deletedIssue;
     } catch (error) {
       console.error('Error deleting issue:', error);
+      throw error;
+    }
+  }
+
+  async getIssuesCount(status?: Status) {
+    try {
+      const count = await this.client.issue.count({
+        where: status ? { status } : {},
+      });
+      return count;
+    } catch (error) {
+      console.error('Error getting total issues count:', error);
       throw error;
     }
   }
