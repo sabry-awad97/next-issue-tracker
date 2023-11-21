@@ -7,6 +7,7 @@ import { Issue, Status } from '@prisma/client';
 import { NextPage } from 'next';
 import NextLink from 'next/link';
 import { ArrowUpIcon } from '@radix-ui/react-icons';
+import Pagination from '@/app/components/shared/Pagination';
 
 interface Props {
   searchParams: {
@@ -89,6 +90,7 @@ const IssuesPage: NextPage<Props> = async ({ searchParams }) => {
           ))}
         </Table.Body>
       </Table.Root>
+      <Pagination totalCount={100} currentPage={1} pageSize={10} />
     </div>
   );
 };
