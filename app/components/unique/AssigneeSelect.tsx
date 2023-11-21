@@ -4,6 +4,7 @@ import type { Issue, User } from '@prisma/client';
 import { Select } from '@radix-ui/themes';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 import { Skeleton } from '../shared/Skeleton';
 
 const UNASSIGNED_VALUE = 'unassigned';
@@ -25,16 +26,15 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
 
   const handleAssigneeChange = async (userId: string) => {
     try {
-      const { data: updatedIssue } = await axios.patch(
-        `/api/issues/${issue.id}`,
-        {
-          assignedToUserId: userId !== UNASSIGNED_VALUE ? userId : null,
-        }
-      );
+      await axios.patch(`/api/issues/${issue.id}`, {
+        assignedToUserId: userId !== UNASSIGNED_VALUE ? userId : null,
+      });
 
-      console.log('Issue updated:', updatedIssue);
+      toast.success('Issue updated successfully.', { duration: 2000 });
     } catch (error) {
-      console.error('Error updating issue:', error);
+      toast.error('Failed to update issue. Please try again.', {
+        duration: 2000,
+      });
     }
   };
 
@@ -43,23 +43,26 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
   if (error) return null;
 
   return (
-    <Select.Root
-      defaultValue={issue.assignedToUserId || UNASSIGNED_VALUE}
-      onValueChange={handleAssigneeChange}
-    >
-      <Select.Trigger placeholder="Assign..." />
-      <Select.Content>
-        <Select.Group>
-          <Select.Label>Suggestions</Select.Label>
-          <Select.Item value={UNASSIGNED_VALUE}>Unassigned</Select.Item>
-          {users?.map(user => (
-            <Select.Item key={user.id} value={user.id}>
-              {user.name}
-            </Select.Item>
-          ))}
-        </Select.Group>
-      </Select.Content>
-    </Select.Root>
+    <>
+      <Select.Root
+        defaultValue={issue.assignedToUserId || UNASSIGNED_VALUE}
+        onValueChange={handleAssigneeChange}
+      >
+        <Select.Trigger placeholder="Assign..." />
+        <Select.Content>
+          <Select.Group>
+            <Select.Label>Suggestions</Select.Label>
+            <Select.Item value={UNASSIGNED_VALUE}>Unassigned</Select.Item>
+            {users?.map(user => (
+              <Select.Item key={user.id} value={user.id}>
+                {user.name}
+              </Select.Item>
+            ))}
+          </Select.Group>
+        </Select.Content>
+      </Select.Root>
+      <Toaster />
+    </>
   );
 };
 
