@@ -2,7 +2,7 @@
 
 import { Status } from '@prisma/client';
 import { Select } from '@radix-ui/themes';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { sentenceCase } from 'change-case';
 
 type StatusOption = {
@@ -21,10 +21,20 @@ const unknownStatus = { label: 'All', value: 'Unknown' };
 
 const IssueStatusFilter = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const handleStatusChange = (status: string): void => {
-    const params = new URLSearchParams({ status });
-    const query = status === unknownStatus.value ? '' : '?' + params.toString();
+    const params = new URLSearchParams();
+
+    if (status && status !== unknownStatus.value) {
+      params.append('status', status);
+    }
+
+    const orderBy = searchParams.get('orderBy');
+    if (orderBy) params.append('orderBy', orderBy);
+
+    const query = params.size ? '?' + params.toString() : '';
+
     router.push(`/issues/list${query}`);
   };
 
