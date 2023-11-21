@@ -5,3 +5,7 @@ Content-Type: application/json
     "title": "first issue",
     "description": "description of the first issue"
 }
+
+###
+
+GET http://localhost:3000/api/users HTTP/1.1
