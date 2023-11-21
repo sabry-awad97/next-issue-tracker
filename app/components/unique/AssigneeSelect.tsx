@@ -10,19 +10,7 @@ import { Skeleton } from '../shared/Skeleton';
 const UNASSIGNED_VALUE = 'unassigned';
 
 const AssigneeSelect = ({ issue }: { issue: Issue }) => {
-  const {
-    isLoading,
-    error,
-    data: users,
-  } = useQuery({
-    queryKey: ['users'],
-    queryFn: async () => {
-      const { data } = await axios.get<User[]>('/api/users');
-      return data;
-    },
-    staleTime: 60 * 1000, // 60 seconds
-    retry: 3,
-  });
+  const { isLoading, error, data: users } = useUsers();
 
   const handleAssigneeChange = async (userId: string) => {
     try {
@@ -67,3 +55,15 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
 };
 
 export default AssigneeSelect;
+
+const useUsers = () => {
+  return useQuery({
+    queryKey: ['users'],
+    queryFn: async () => {
+      const { data } = await axios.get<User[]>('/api/users');
+      return data;
+    },
+    staleTime: 60 * 60 * 1000, // 1 hour
+    retry: 3,
+  });
+};
