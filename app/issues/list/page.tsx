@@ -3,10 +3,18 @@ import { Table } from '@radix-ui/themes';
 import IssueStatusBadge from '../../components/shared/IssueStatusBadge';
 import Link from '../../components/shared/Link';
 import IssuesToolbar from '../../components/unique/IssuesToolbar';
+import { Status } from '@prisma/client';
+import { NextPage } from 'next';
 
-const IssuesPage = async () => {
+interface Props {
+  searchParams: {
+    status?: Status;
+  };
+}
+
+const IssuesPage: NextPage<Props> = async ({ searchParams }) => {
   const service = IssueService.getInstance();
-  const issues = await service.findIssues();
+  const issues = await service.findIssuesByStatus(searchParams.status);
 
   return (
     <div>

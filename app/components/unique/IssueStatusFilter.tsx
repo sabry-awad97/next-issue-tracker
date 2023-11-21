@@ -2,26 +2,41 @@
 
 import { Status } from '@prisma/client';
 import { Select } from '@radix-ui/themes';
+import { useRouter } from 'next/navigation';
+import { sentenceCase } from 'change-case';
 
 type StatusOption = {
   label: string;
-  value?: Status;
+  value: Status;
 };
 
-const statusMap: Map<string, StatusOption> = new Map([
-  ['ALL', { label: 'All' }],
-  [Status.OPEN, { label: 'Open', value: Status.OPEN }],
-  [Status.IN_PROGRESS, { label: 'In Progress', value: Status.IN_PROGRESS }],
-  [Status.CLOSED, { label: 'Closed', value: Status.CLOSED }],
-]);
+const statuses: StatusOption[] = [
+  ...Object.values(Status).map(status => ({
+    label: sentenceCase(status),
+    value: status as Status,
+  })),
+];
+
+const unknownStatus = { label: 'All', value: 'Unknown' };
 
 const IssueStatusFilter = () => {
+  const router = useRouter();
+
+  const handleStatusChange = (status: string): void => {
+    const params = new URLSearchParams({ status });
+    const query = status === unknownStatus.value ? '' : '?' + params.toString();
+    router.push(`/issues/list${query}`);
+  };
+
   return (
-    <Select.Root>
+    <Select.Root onValueChange={handleStatusChange}>
       <Select.Trigger placeholder="Filter by status..." />
       <Select.Content>
-        {[...statusMap.values()].map(status => (
-          <Select.Item key={status.label} value={status.value || 'unknown'}>
+        <Select.Item key={unknownStatus.value} value={unknownStatus.value}>
+          {unknownStatus.label}
+        </Select.Item>
+        {statuses.map(status => (
+          <Select.Item key={status.value} value={status.value}>
             {status.label}
           </Select.Item>
         ))}
