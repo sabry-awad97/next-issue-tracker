@@ -1,0 +1,142 @@
+[
+  {
+    "title": "Server Downtime",
+    "description": "The server is down, causing service disruption.",
+    "status": "OPEN",
+    "createdAt": "2023-11-21T08:00:00.000Z",
+    "updatedAt": "2023-11-21T08:00:00.000Z"
+  },
+  {
+    "title": "Payment Gateway Failure",
+    "description": "Issues with processing payments via the gateway.",
+    "status": "IN_PROGRESS",
+    "createdAt": "2023-11-20T10:30:00.000Z",
+    "updatedAt": "2023-11-20T10:30:00.000Z"
+  },
+  {
+    "title": "Data Loss",
+    "description": "Critical data loss reported in the system.",
+    "status": "CLOSED",
+    "createdAt": "2023-11-19T15:45:00.000Z",
+    "updatedAt": "2023-11-19T15:45:00.000Z"
+  },
+  {
+    "title": "Website Performance Degradation",
+    "description": "Website loading slower than usual.",
+    "status": "OPEN",
+    "createdAt": "2023-11-18T12:20:00.000Z",
+    "updatedAt": "2023-11-18T12:20:00.000Z"
+  },
+  {
+    "title": "Email Delivery Issue",
+    "description": "Emails not being delivered to recipients.",
+    "status": "IN_PROGRESS",
+    "createdAt": "2023-11-17T09:10:00.000Z",
+    "updatedAt": "2023-11-17T09:10:00.000Z"
+  },
+  {
+    "title": "Mobile App Crashes on Startup",
+    "description": "App crashes when launched on mobile devices.",
+    "status": "CLOSED",
+    "createdAt": "2023-11-16T14:55:00.000Z",
+    "updatedAt": "2023-11-16T14:55:00.000Z"
+  },
+  {
+    "title": "File Upload Error",
+    "description": "Users unable to upload files in the system.",
+    "status": "OPEN",
+    "createdAt": "2023-11-15T11:40:00.000Z",
+    "updatedAt": "2023-11-15T11:40:00.000Z"
+  },
+  {
+    "title": "Broken Links on Website",
+    "description": "Several broken links reported on the website.",
+    "status": "OPEN",
+    "createdAt": "2023-11-14T16:25:00.000Z",
+    "updatedAt": "2023-11-14T16:25:00.000Z"
+  },
+  {
+    "title": "Login Page Not Accessible",
+    "description": "Users unable to access the login page.",
+    "status": "IN_PROGRESS",
+    "createdAt": "2023-11-13T13:15:00.000Z",
+    "updatedAt": "2023-11-13T13:15:00.000Z"
+  },
+  {
+    "title": "Inventory Sync Failure",
+    "description": "Issues with syncing inventory data across platforms.",
+    "status": "CLOSED",
+    "createdAt": "2023-11-12T09:50:00.000Z",
+    "updatedAt": "2023-11-12T09:50:00.000Z"
+  },
+  {
+    "title": "System Overload",
+    "description": "High system load affecting overall performance.",
+    "status": "IN_PROGRESS",
+    "createdAt": "2023-11-11T14:30:00.000Z",
+    "updatedAt": "2023-11-11T14:30:00.000Z"
+  },
+  {
+    "title": "SSL Certificate Expiry",
+    "description": "SSL certificate has expired, causing security warnings.",
+    "status": "OPEN",
+    "createdAt": "2023-11-10T11:20:00.000Z",
+    "updatedAt": "2023-11-10T11:20:00.000Z"
+  },
+  {
+    "title": "API Integration Issue",
+    "description": "Problems encountered while integrating with third-party APIs.",
+    "status": "CLOSED",
+    "createdAt": "2023-11-09T16:00:00.000Z",
+    "updatedAt": "2023-11-09T16:00:00.000Z"
+  },
+  {
+    "title": "Customer Data Inaccuracy",
+    "description": "Inaccurate customer data reported in the system.",
+    "status": "IN_PROGRESS",
+    "createdAt": "2023-11-08T12:45:00.000Z",
+    "updatedAt": "2023-11-08T12:45:00.000Z"
+  },
+  {
+    "title": "Newsletter Subscription Error",
+    "description": "Users experiencing errors while subscribing to newsletters.",
+    "status": "OPEN",
+    "createdAt": "2023-11-07T09:35:00.000Z",
+    "updatedAt": "2023-11-07T09:35:00.000Z"
+  },
+  {
+    "title": "Search Functionality Not Working",
+    "description": "Search feature not functioning properly on the website.",
+    "status": "CLOSED",
+    "createdAt": "2023-11-06T14:15:00.000Z",
+    "updatedAt": "2023-11-06T14:15:00.000Z"
+  },
+  {
+    "title": "Incorrect Pricing Displayed",
+    "description": "Incorrect prices being displayed for products/services.",
+    "status": "OPEN",
+    "createdAt": "2023-11-05T11:05:00.000Z",
+    "updatedAt": "2023-11-05T11:05:00.000Z"
+  },
+  {
+    "title": "Spam Filter Overly Aggressive",
+    "description": "Legitimate emails being marked as spam by the filter.",
+    "status": "IN_PROGRESS",
+    "createdAt": "2023-11-04T16:55:00.000Z",
+    "updatedAt": "2023-11-04T16:55:00.000Z"
+  },
+  {
+    "title": "Mobile App UI Glitches",
+    "description": "User interface displaying glitches on the mobile app.",
+    "status": "OPEN",
+    "createdAt": "2023-11-03T13:50:00.000Z",
+    "updatedAt": "2023-11-03T13:50:00.000Z"
+  },
+  {
+    "title": "404 Errors on Website",
+    "description": "Numerous pages showing '404 - Page Not Found' errors.",
+    "status": "CLOSED",
+    "createdAt": "2023-11-02T10:45:00.000Z",
+    "updatedAt": "2023-11-02T10:45:00.000Z"
+  }
+]
