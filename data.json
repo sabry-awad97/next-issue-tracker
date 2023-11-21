@@ -1,142 +1,562 @@
 [
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c49924d"
+    },
     "title": "Server Downtime",
     "description": "The server is down, causing service disruption.",
     "status": "OPEN",
-    "createdAt": "2023-11-21T08:00:00.000Z",
-    "updatedAt": "2023-11-21T08:00:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-21T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-21T08:00:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c49924e"
+    },
     "title": "Payment Gateway Failure",
     "description": "Issues with processing payments via the gateway.",
     "status": "IN_PROGRESS",
-    "createdAt": "2023-11-20T10:30:00.000Z",
-    "updatedAt": "2023-11-20T10:30:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-20T10:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-20T10:30:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c49924f"
+    },
     "title": "Data Loss",
     "description": "Critical data loss reported in the system.",
     "status": "CLOSED",
-    "createdAt": "2023-11-19T15:45:00.000Z",
-    "updatedAt": "2023-11-19T15:45:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-19T15:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-19T15:45:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c499250"
+    },
     "title": "Website Performance Degradation",
     "description": "Website loading slower than usual.",
     "status": "OPEN",
-    "createdAt": "2023-11-18T12:20:00.000Z",
-    "updatedAt": "2023-11-18T12:20:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-18T12:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-18T12:20:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c499251"
+    },
     "title": "Email Delivery Issue",
     "description": "Emails not being delivered to recipients.",
     "status": "IN_PROGRESS",
-    "createdAt": "2023-11-17T09:10:00.000Z",
-    "updatedAt": "2023-11-17T09:10:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-17T09:10:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-17T09:10:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c499252"
+    },
     "title": "Mobile App Crashes on Startup",
     "description": "App crashes when launched on mobile devices.",
     "status": "CLOSED",
-    "createdAt": "2023-11-16T14:55:00.000Z",
-    "updatedAt": "2023-11-16T14:55:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-16T14:55:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-16T14:55:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c499253"
+    },
     "title": "File Upload Error",
     "description": "Users unable to upload files in the system.",
     "status": "OPEN",
-    "createdAt": "2023-11-15T11:40:00.000Z",
-    "updatedAt": "2023-11-15T11:40:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-15T11:40:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-15T11:40:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c499254"
+    },
     "title": "Broken Links on Website",
     "description": "Several broken links reported on the website.",
     "status": "OPEN",
-    "createdAt": "2023-11-14T16:25:00.000Z",
-    "updatedAt": "2023-11-14T16:25:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-14T16:25:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-14T16:25:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c499255"
+    },
     "title": "Login Page Not Accessible",
     "description": "Users unable to access the login page.",
     "status": "IN_PROGRESS",
-    "createdAt": "2023-11-13T13:15:00.000Z",
-    "updatedAt": "2023-11-13T13:15:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-13T13:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-13T13:15:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c499256"
+    },
     "title": "Inventory Sync Failure",
     "description": "Issues with syncing inventory data across platforms.",
     "status": "CLOSED",
-    "createdAt": "2023-11-12T09:50:00.000Z",
-    "updatedAt": "2023-11-12T09:50:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-12T09:50:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-12T09:50:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c499257"
+    },
     "title": "System Overload",
     "description": "High system load affecting overall performance.",
     "status": "IN_PROGRESS",
-    "createdAt": "2023-11-11T14:30:00.000Z",
-    "updatedAt": "2023-11-11T14:30:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-11T14:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-11T14:30:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c499258"
+    },
     "title": "SSL Certificate Expiry",
     "description": "SSL certificate has expired, causing security warnings.",
     "status": "OPEN",
-    "createdAt": "2023-11-10T11:20:00.000Z",
-    "updatedAt": "2023-11-10T11:20:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-10T11:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-10T11:20:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c499259"
+    },
     "title": "API Integration Issue",
     "description": "Problems encountered while integrating with third-party APIs.",
     "status": "CLOSED",
-    "createdAt": "2023-11-09T16:00:00.000Z",
-    "updatedAt": "2023-11-09T16:00:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-09T16:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-09T16:00:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c49925a"
+    },
     "title": "Customer Data Inaccuracy",
     "description": "Inaccurate customer data reported in the system.",
     "status": "IN_PROGRESS",
-    "createdAt": "2023-11-08T12:45:00.000Z",
-    "updatedAt": "2023-11-08T12:45:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-08T12:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-08T12:45:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c49925b"
+    },
     "title": "Newsletter Subscription Error",
     "description": "Users experiencing errors while subscribing to newsletters.",
     "status": "OPEN",
-    "createdAt": "2023-11-07T09:35:00.000Z",
-    "updatedAt": "2023-11-07T09:35:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-07T09:35:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-07T09:35:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c49925c"
+    },
     "title": "Search Functionality Not Working",
     "description": "Search feature not functioning properly on the website.",
     "status": "CLOSED",
-    "createdAt": "2023-11-06T14:15:00.000Z",
-    "updatedAt": "2023-11-06T14:15:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-06T14:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-06T14:15:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c49925d"
+    },
     "title": "Incorrect Pricing Displayed",
     "description": "Incorrect prices being displayed for products/services.",
     "status": "OPEN",
-    "createdAt": "2023-11-05T11:05:00.000Z",
-    "updatedAt": "2023-11-05T11:05:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-05T11:05:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-05T11:05:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c49925e"
+    },
     "title": "Spam Filter Overly Aggressive",
     "description": "Legitimate emails being marked as spam by the filter.",
     "status": "IN_PROGRESS",
-    "createdAt": "2023-11-04T16:55:00.000Z",
-    "updatedAt": "2023-11-04T16:55:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-04T16:55:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-04T16:55:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c49925f"
+    },
     "title": "Mobile App UI Glitches",
     "description": "User interface displaying glitches on the mobile app.",
     "status": "OPEN",
-    "createdAt": "2023-11-03T13:50:00.000Z",
-    "updatedAt": "2023-11-03T13:50:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-03T13:50:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-03T13:50:00.000Z"
+    }
   },
   {
+    "_id": {
+      "$oid": "655d1b90d4f674d85c499260"
+    },
     "title": "404 Errors on Website",
     "description": "Numerous pages showing '404 - Page Not Found' errors.",
     "status": "CLOSED",
-    "createdAt": "2023-11-02T10:45:00.000Z",
-    "updatedAt": "2023-11-02T10:45:00.000Z"
+    "createdAt": {
+      "$date": "2023-11-02T10:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-02T10:45:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499261"
+    },
+    "title": "Database Connection Failure",
+    "description": "Unable to establish connection to the database server.",
+    "status": "OPEN",
+    "createdAt": {
+      "$date": "2023-11-22T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-22T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499262"
+    },
+    "title": "Website Unresponsive",
+    "description": "Website not responding to user requests intermittently.",
+    "status": "IN_PROGRESS",
+    "createdAt": {
+      "$date": "2023-11-21T10:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-21T10:30:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499263"
+    },
+    "title": "Broken Image Links",
+    "description": "Images on the website failing to load.",
+    "status": "CLOSED",
+    "createdAt": {
+      "$date": "2023-11-20T15:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-20T15:45:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499264"
+    },
+    "title": "Login Timeout",
+    "description": "Users experiencing login timeouts frequently.",
+    "status": "OPEN",
+    "createdAt": {
+      "$date": "2023-11-19T12:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-19T12:20:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499265"
+    },
+    "title": "Email Server Down",
+    "description": "Email server not responding to incoming requests.",
+    "status": "IN_PROGRESS",
+    "createdAt": {
+      "$date": "2023-11-18T09:10:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-18T09:10:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499266"
+    },
+    "title": "Mobile App Crashes on Purchase",
+    "description": "App crashes when users attempt to make purchases.",
+    "status": "CLOSED",
+    "createdAt": {
+      "$date": "2023-11-17T14:55:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-17T14:55:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499267"
+    },
+    "title": "File Corruption",
+    "description": "Corrupted files reported within the system.",
+    "status": "OPEN",
+    "createdAt": {
+      "$date": "2023-11-16T11:40:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-16T11:40:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499268"
+    },
+    "title": "Slow API Responses",
+    "description": "Delays in receiving responses from third-party APIs.",
+    "status": "OPEN",
+    "createdAt": {
+      "$date": "2023-11-15T16:25:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-15T16:25:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499269"
+    },
+    "title": "Logout Functionality Issue",
+    "description": "Users unable to log out from their accounts.",
+    "status": "IN_PROGRESS",
+    "createdAt": {
+      "$date": "2023-11-14T13:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-14T13:15:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c49926a"
+    },
+    "title": "Payment Processing Errors",
+    "description": "Errors encountered while processing payments.",
+    "status": "CLOSED",
+    "createdAt": {
+      "$date": "2023-11-13T09:50:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-13T09:50:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c49926b"
+    },
+    "title": "System Maintenance Required",
+    "description": "System requires immediate maintenance due to performance issues.",
+    "status": "IN_PROGRESS",
+    "createdAt": {
+      "$date": "2023-11-12T14:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-12T14:30:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c49926c"
+    },
+    "title": "SSL Renewal Pending",
+    "description": "SSL certificate nearing expiration, renewal pending.",
+    "status": "OPEN",
+    "createdAt": {
+      "$date": "2023-11-11T11:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-11T11:20:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c49926d"
+    },
+    "title": "Data Integration Issue",
+    "description": "Issues encountered while integrating data from multiple sources.",
+    "status": "CLOSED",
+    "createdAt": {
+      "$date": "2023-11-10T16:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-10T16:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c49926e"
+    },
+    "title": "Search Functionality Errors",
+    "description": "Search feature not returning accurate results.",
+    "status": "IN_PROGRESS",
+    "createdAt": {
+      "$date": "2023-11-09T12:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-09T12:45:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c49926f"
+    },
+    "title": "Cart Checkout Failures",
+    "description": "Failures occurring during the checkout process.",
+    "status": "OPEN",
+    "createdAt": {
+      "$date": "2023-11-08T09:35:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-08T09:35:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499270"
+    },
+    "title": "Performance Metrics Discrepancy",
+    "description": "Discrepancies observed in performance metrics.",
+    "status": "CLOSED",
+    "createdAt": {
+      "$date": "2023-11-07T14:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-07T14:15:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499271"
+    },
+    "title": "UI Design Inconsistencies",
+    "description": "Inconsistencies noticed in the user interface design.",
+    "status": "OPEN",
+    "createdAt": {
+      "$date": "2023-11-06T11:05:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-06T11:05:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499272"
+    },
+    "title": "Spam Filter Issues",
+    "description": "Legitimate emails being filtered as spam erroneously.",
+    "status": "IN_PROGRESS",
+    "createdAt": {
+      "$date": "2023-11-05T16:55:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-05T16:55:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499273"
+    },
+    "title": "App Crashes on Profile Update",
+    "description": "App crashes when users attempt to update their profiles.",
+    "status": "OPEN",
+    "createdAt": {
+      "$date": "2023-11-04T13:50:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-04T13:50:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "655d1c16d4f674d85c499274"
+    },
+    "title": "404 Errors Persisting",
+    "description": "Continued occurrence of '404 - Page Not Found' errors.",
+    "status": "CLOSED",
+    "createdAt": {
+      "$date": "2023-11-03T10:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2023-11-03T10:45:00.000Z"
+    }
   }
 ]
