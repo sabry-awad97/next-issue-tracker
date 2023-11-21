@@ -39,7 +39,10 @@ const IssueStatusFilter = () => {
   };
 
   return (
-    <Select.Root onValueChange={handleStatusChange}>
+    <Select.Root
+      defaultValue={searchParams.get('status') || unknownStatus.value}
+      onValueChange={handleStatusChange}
+    >
       <Select.Trigger placeholder="Filter by status..." />
       <Select.Content>
         <Select.Item key={unknownStatus.value} value={unknownStatus.value}>
