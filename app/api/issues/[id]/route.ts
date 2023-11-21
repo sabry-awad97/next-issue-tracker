@@ -38,7 +38,7 @@ export async function PATCH(request: NextRequest, { params: { id } }: Props) {
 export async function DELETE(request: NextRequest, { params: { id } }: Props) {
   const session = await getServerSession(authOptions);
   if (!session) return NextResponse.json({}, { status: 401 });
-  
+
   const service = IssueService.getInstance();
 
   const issue = await service.findIssue(id);
