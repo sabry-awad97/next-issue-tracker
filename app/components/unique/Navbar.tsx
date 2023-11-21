@@ -1,10 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { AiFillBug } from 'react-icons/ai';
-import NavbarLink from './NavbarLink';
-import { useSession } from 'next-auth/react';
 import {
   Avatar,
   Box,
@@ -13,16 +8,13 @@ import {
   Flex,
   Text,
 } from '@radix-ui/themes';
+import classNames from 'classnames';
+import { useSession } from 'next-auth/react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { AiFillBug } from 'react-icons/ai';
 
 const Navbar = () => {
-  const currentPath = usePathname();
-  const { status, data: session } = useSession();
-
-  const navLinks = [
-    { href: '/', text: 'Dashboard' },
-    { href: '/issues/list', text: 'Issues' },
-  ];
-
   return (
     <nav className="border-b mb-5 px-5 py-3">
       <Container>
@@ -31,44 +23,10 @@ const Navbar = () => {
             <Link href="/">
               <AiFillBug />
             </Link>
-            <ul className="flex space-x-6">
-              {navLinks.map(link => (
-                <NavbarLink
-                  key={link.href}
-                  href={link.href}
-                  text={link.text}
-                  currentPath={currentPath}
-                />
-              ))}
-            </ul>
+            <NavbarLinks />
           </Flex>
-          <Box>
-            {status === 'authenticated' && (
-              <DropdownMenu.Root>
-                <DropdownMenu.Trigger>
-                  <Avatar
-                    className="cursor-pointer"
-                    src={session.user?.image!}
-                    fallback="?"
-                    size="2"
-                    radius="full"
-                    referrerPolicy="no-referrer"
-                  />
-                </DropdownMenu.Trigger>
-                <DropdownMenu.Content>
-                  <DropdownMenu.Label>
-                    <Text size="2">{session.user?.email}</Text>
-                  </DropdownMenu.Label>
-                  <DropdownMenu.Item>
-                    <Link href="/api/auth/signout">Logout</Link>
-                  </DropdownMenu.Item>
-                </DropdownMenu.Content>
-              </DropdownMenu.Root>
-            )}
-            {status === 'unauthenticated' && (
-              <Link href="/api/auth/signin">Login</Link>
-            )}
-          </Box>
+
+          <AuthStatus />
         </Flex>
       </Container>
     </nav>
@@ -76,3 +34,66 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+const NavbarLinks = () => {
+  const currentPath = usePathname();
+
+  const navLinks = [
+    { href: '/', text: 'Dashboard' },
+    { href: '/issues/list', text: 'Issues' },
+  ];
+
+  return (
+    <ul className="flex space-x-6">
+      {navLinks.map(link => (
+        <li
+          key={link.href}
+          className={classNames({
+            'text-zinc-900': link.href === currentPath,
+            'text-zinc-500': link.href !== currentPath,
+            'hover:text-zinc-800': true,
+            'transition-colors': true,
+          })}
+        >
+          <Link href={link.href}>{link.text}</Link>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+const AuthStatus = () => {
+  const { status, data: session } = useSession();
+
+  if (status === 'loading') return null;
+
+  if (status === 'unauthenticated')
+    return <Link href="/api/auth/signin">Login</Link>;
+
+  const { email, image } = session!.user!;
+
+  return (
+    <Box>
+      <DropdownMenu.Root>
+        <DropdownMenu.Trigger>
+          <Avatar
+            className="cursor-pointer"
+            src={image!}
+            fallback="?"
+            size="2"
+            radius="full"
+            referrerPolicy="no-referrer"
+          />
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Content>
+          <DropdownMenu.Label>
+            <Text size="2">{email!}</Text>
+          </DropdownMenu.Label>
+          <DropdownMenu.Item>
+            <Link href="/api/auth/signout">Logout</Link>
+          </DropdownMenu.Item>
+        </DropdownMenu.Content>
+      </DropdownMenu.Root>
+    </Box>
+  );
+};
