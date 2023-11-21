@@ -1,6 +1,8 @@
 import { Prisma, PrismaClient } from '@prisma/client';
 import prisma from '../client';
 
+type UserId = Prisma.Args<typeof prisma.user, 'findUnique'>['where']['id'];
+
 export default class UserService {
   private static instance: UserService | null = null;
   private constructor(private client: PrismaClient) {}
@@ -9,6 +11,18 @@ export default class UserService {
       UserService.instance = new UserService(prisma);
     }
     return UserService.instance;
+  }
+
+  async findUser(id: UserId) {
+    try {
+      const issue = await this.client.user.findUnique({
+        where: { id },
+      });
+      return issue;
+    } catch (error) {
+      console.error('Error finding user:', error);
+      throw error;
+    }
   }
 
   async getUsersOrderedByAsc() {
