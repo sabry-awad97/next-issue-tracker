@@ -1,9 +1,7 @@
+import LatestIssues from './components/unique/LatestIssues';
+
 const Home = () => {
-  return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
-  );
+  return <LatestIssues />;
 };
 
 export default Home;

@@ -1,5 +1,5 @@
 import { Skeleton } from '@/app/components/shared/Skeleton';
-import { Table } from '@radix-ui/themes';
+import { Box, Table } from '@radix-ui/themes';
 import IssuesToolbar from '../../components/unique/IssuesToolbar';
 
 const LoadingIssuesPage = () => {
@@ -25,9 +25,9 @@ const LoadingIssuesPage = () => {
             <Table.Row key={issue}>
               <Table.Cell>
                 <Skeleton />
-                <div className="md:hidden">
+                <Box className="md:hidden">
                   <Skeleton />
-                </div>
+                </Box>
               </Table.Cell>
               <Table.Cell className="hidden md:table-cell">
                 <Skeleton />
