@@ -26,7 +26,7 @@ const Pagination = ({ currentPage, totalCount, pageSize }: PaginationProps) => {
   const isLast = currentPage === totalPages;
 
   const changePage = (page: number) => {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(searchParams);
     params.set('page', page.toString());
     router.push('?' + params.toString());
   };
