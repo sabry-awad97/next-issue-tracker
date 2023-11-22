@@ -1,8 +1,7 @@
-import { Card, Flex, Heading, Text } from '@radix-ui/themes';
-import React from 'react';
-import IssueStatusBadge from '../shared/IssueStatusBadge';
-import Markdown from 'react-markdown';
 import { Issue } from '@prisma/client';
+import { Card, Flex, Heading, Text } from '@radix-ui/themes';
+import Markdown from 'react-markdown';
+import IssueStatusBadge from '../shared/IssueStatusBadge';
 
 const IssueDetails = ({ issue }: { issue: Issue }) => {
   return (

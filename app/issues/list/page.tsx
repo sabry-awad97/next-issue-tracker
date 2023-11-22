@@ -6,7 +6,7 @@ import IssuesTable, {
 import IssueService from '@/prisma/services/issue';
 import { Status } from '@prisma/client';
 import { Box, Flex } from '@radix-ui/themes';
-import { NextPage } from 'next';
+import { Metadata, NextPage } from 'next';
 import IssuesToolbar from '../../components/unique/IssuesToolbar';
 
 interface Props {
@@ -54,3 +54,8 @@ export const dynamic = 'force-dynamic';
 // export const revalidate = 0;
 
 export default IssuesPage;
+
+export const metadata: Metadata = {
+  title: 'Issue Tracker - Issues List',
+  description: 'View all issues',
+};

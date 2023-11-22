@@ -4,6 +4,7 @@ import LatestIssues from './components/unique/LatestIssues';
 import { Status } from '@prisma/client';
 import IssuesChart from './components/unique/IssuesChart';
 import { Flex, Grid } from '@radix-ui/themes';
+import { Metadata } from 'next';
 
 const Home = async () => {
   const service = IssueService.getInstance();
@@ -23,3 +24,8 @@ const Home = async () => {
 };
 
 export default Home;
+
+export const metadata: Metadata = {
+  title: 'Issue Tracker - Dashboard',
+  description: "View a summary of the issues"
+};
