@@ -40,12 +40,16 @@ const IssuesPage: NextPage<Props> = async ({ searchParams }) => {
   return (
     <Flex direction="column" gap="3">
       <IssuesToolbar />
-      <IssuesTable searchParams={searchParams} issues={issues} />
-      <Pagination
-        totalCount={totalIssuesCount}
-        currentPage={page}
-        pageSize={10}
-      />
+      {totalIssuesCount && (
+        <>
+          <IssuesTable searchParams={searchParams} issues={issues} />
+          <Pagination
+            totalCount={totalIssuesCount}
+            currentPage={page}
+            pageSize={10}
+          />
+        </>
+      )}
     </Flex>
   );
 };
