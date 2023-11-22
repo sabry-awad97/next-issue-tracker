@@ -60,6 +60,7 @@ export const dynamic = 'force-dynamic';
 export default IssuesPage;
 
 export const metadata: Metadata = {
-  title: 'Issue Tracker - Issues List',
-  description: 'View all issues',
+  title: 'Explore Project Issues: Comprehensive List and Details',
+  description:
+    "Effortlessly navigate and manage your project's issues. Access a detailed list showcasing statuses, priorities, and essential details for efficient tracking. Stay organized and informed, ensuring seamless resolution and progress monitoring within your project workflow.",
 };

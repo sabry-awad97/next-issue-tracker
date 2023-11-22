@@ -26,6 +26,6 @@ const Home = async () => {
 export default Home;
 
 export const metadata: Metadata = {
-  title: 'Issue Tracker - Dashboard',
-  description: 'View a summary of the issues',
+  title: 'Insights into Your Project: Issue Tracker Dashboard',
+  description: "Track, analyze, and manage your project's issues with real-time summaries, charts, and the latest updates. Gain comprehensive visibility into open, in-progress, and closed issues, empowering efficient project management and progress monitoring.",
 };
