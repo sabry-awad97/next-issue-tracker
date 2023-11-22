@@ -9,7 +9,6 @@ interface Props {
 }
 
 const IssuesSummary = ({ open, inProgress, closed }: Props) => {
-
   const statusMap: {
     label: string;
     value: number;

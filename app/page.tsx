@@ -2,6 +2,7 @@ import IssueService from '@/prisma/services/issue';
 import IssuesSummary from './components/unique/IssuesSummary';
 import LatestIssues from './components/unique/LatestIssues';
 import { Status } from '@prisma/client';
+import IssuesChart from './components/unique/IssuesChart';
 
 const Home = async () => {
   const service = IssueService.getInstance();
@@ -13,6 +14,7 @@ const Home = async () => {
     <>
       <LatestIssues />
       <IssuesSummary open={open} inProgress={inProgress} closed={closed} />
+      <IssuesChart open={open} inProgress={inProgress} closed={closed} />
     </>
   );
 };
