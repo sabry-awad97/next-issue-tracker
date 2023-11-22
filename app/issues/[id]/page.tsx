@@ -1,12 +1,12 @@
-import authOptions from '@/app/auth/authOptions';
+import { getSession } from '@/app/auth/session';
 import AssigneeSelect from '@/app/components/unique/AssigneeSelect';
 import DeleteIssueButton from '@/app/components/unique/DeleteIssueButton';
 import EditIssueButton from '@/app/components/unique/EditIssueButton';
 import IssueDetails from '@/app/components/unique/IssueDetails';
 import IssueService from '@/prisma/services/issue';
 import { Box, Flex, Grid } from '@radix-ui/themes';
-import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
+import { cache } from 'react';
 
 interface Props {
   params: {
@@ -14,10 +14,13 @@ interface Props {
   };
 }
 
+const fetchIssue = cache((issueId: string) =>
+  IssueService.getInstance().findIssue(issueId)
+);
+
 const IssueDetailPage = async ({ params: { id } }: Props) => {
-  const service = IssueService.getInstance();
-  const issue = await service.findIssue(id);
-  const session = await getServerSession(authOptions);
+  const issue = await fetchIssue(id);
+  const session = await getSession();
 
   if (!issue) {
     notFound();
@@ -42,8 +45,7 @@ const IssueDetailPage = async ({ params: { id } }: Props) => {
 };
 
 export async function generateMetadata({ params: { id } }: Props) {
-  const service = IssueService.getInstance();
-  const issue = await service.findIssue(id);
+  const issue = await fetchIssue(id);
 
   return {
     title: issue?.title,

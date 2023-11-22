@@ -27,5 +27,5 @@ export default Home;
 
 export const metadata: Metadata = {
   title: 'Issue Tracker - Dashboard',
-  description: "View a summary of the issues"
+  description: 'View a summary of the issues',
 };
